@@ -1,0 +1,1 @@
+This is a simple log access utility born out of a need to access raw logs on my heroku app. Input your API key and deploy to have contant log feed. Or post your API key and app name as GET arguments in that order to get your log feed.
