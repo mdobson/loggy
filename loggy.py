@@ -6,11 +6,13 @@ import os
 
 def initialize_heroku():
 	cloud = heroku.from_key("INSERT_KEY_HERE")
-	app = cloud.apps["INSERT_APP_NAME_HERE"]
+	app = cloud.apps["APP_NAME_HERE"]
 	return app
 
-def get_data():
-	app = initialize_heroku()
+def get_data(api, app):
+	#app = initialize_heroku()
+	cloud = heroku.from_key(api)
+	app = cloud.apps[app]
 	logs = app.logs()
 	listOfSplitLogs = logs.split('\n')
 	listOfParsedLogs = []
@@ -39,7 +41,15 @@ def stream_data():
 class MainHandler(tornado.web.RequestHandler):
 	def get(self):
 		self.set_header("Content-Type", "application/json")
-		self.write(get_data())
+		queryParams = self.request.uri[2:]
+		queries = queryParams.split('&')
+		apiKey = queries[0].split('=')[1]
+		appName = queries[1].split('=')[1]
+		if(apiKey and appName):
+			self.write(get_data(apiKey, appName))
+		else:
+			self.write("Failed")
+		#self.write(get_data())
 
 
 application = tornado.web.Application([
