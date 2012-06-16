@@ -8,9 +8,9 @@ This is a simple log access utility born out of a need to access raw logs on my 
 
 Three simple steps for this app:
 
-*Clone this repo
-*Create an application on heroku
-*Push!
+1. Clone this repo
+2. Create an application on heroku
+3. Push!
 
 Then have your browser or other consumers issue a GET request to that url with two other URL parameters like so.
 
