@@ -21,14 +21,14 @@ Then you'll get your logs in a nicely formatted JSON stream.
 ##Stream Format##
 
 The stream is just a simple javascript array of JSON objects:
-
+```json
 {
 	date : is the date the log was recorded on,
 	process : is the process that was being logged (Typically either your application or heroku internals for routing),
 	message : is the message that was logged by the particular process,
 	time : is the time the log was recorded on
 }
-
+```
 ##The Long Run##
 
 For now I'll keep building on this if I need new features. If you've forked, and think there is a good feature that belongs in core issue a pull request and we can figure it out :)
