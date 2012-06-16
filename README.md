@@ -25,7 +25,7 @@ The stream is just a simple javascript array of JSON objects:
 {
 	date : "is the date the log was recorded on",
 	process : "is the process that was being logged (Typically either your application or heroku internals for routing)",
-	message : "is the message that was logged by the particular process',
+	message : "is the message that was logged by the particular process",
 	time : "is the time the log was recorded on"
 }
 ```
